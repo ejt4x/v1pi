@@ -1,0 +1,14 @@
+[Unit]
+Name=cncjs
+Description=CNC.js daemon 
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/cncjs
+ExecStart=/usr/local/bin/cnc --host=0.0.0.0 --port=8000
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+

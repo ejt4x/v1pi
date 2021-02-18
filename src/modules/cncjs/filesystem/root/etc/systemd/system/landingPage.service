@@ -1,0 +1,15 @@
+[Unit]
+Name=landingPage
+Description=v1pi Landing Page
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/home/pi/landingPage
+ExecStart=/home/pi/landingPage/flask/bin/flask run --port 8001 --host 0.0.0.0
+Environment=FLASK_APP=/home/pi/landingPage/serve.py
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+

@@ -24,7 +24,7 @@ pushd /home/pi
     npm install -g cncjs@latest --unsafe-perm
 
     # start it by default
-    update-rc.d cncjs defaults 95
+    systemctl enable cncjs
 
     # Also write this to this file, because that's what octoprint uses in their tracking statistics.
     echo "$DIST_VERSION" > /etc/octopi_version
@@ -50,7 +50,7 @@ pushd /home/pi
       popd
 
       # start it by default
-      update-rc.d landingPage defaults 95
+      systemctl enable landingPage
 
     else
       echo "Configured to edit haproxy, but haproxy isn't installed by octopi"
